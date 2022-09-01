@@ -5,7 +5,6 @@
 
 body {
   padding: 20px;
-  text-align: center;
   background-color: #fafafa;
 }
 
@@ -118,5 +117,21 @@ body {
   
   .add-to-cart-button:hover {
     color: #fff;
+    background-color: #000;
+  }
+
+  /* Remove Item button */
+  .remove-from-cart {
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #e23602;
+    transition: color 300ms;
+  }
+  
+  .remove-from-cart:hover {
+    color: #e23602;
     background-color: #000;
   }
