@@ -23,8 +23,24 @@ fetch("https://fakestoreapi.com/products/")
   const cardBody = document.getElementById("card-body")
   cardBody.innerHTML = cartData;
 
+  const cart = document.getElementById("cart-list")
 
-  }).catch((error) => {
+  let selectedItem = ""
+  data.map(value => {
+    selectedItem += `
+    <div class="cart-item">
+      <li id="cart-list" href="#">${value.title}</li>
+      <button id="remove-item" class="remove-from-cart"> X </button>
+    </div>
+    `
+    cart.innerHTML = selectedItem
+    
+  const removeItem = document.getElementById("remove-item")
+  removeItem.addEventListener("click", () =>{
+     console.log("clicked")
+  })
+  })
+}).catch((error) => {
     console.error('Error:', error);
 });
 
