@@ -64,6 +64,7 @@ body {
 /* Product card */
 .image-container {
     width: 25%;
+    display: flex;
     border: 1px solid #ffc400;
     justify-content: center;
     margin: 20px;
@@ -95,6 +96,7 @@ body {
   font-weight: 600;
 }
 
+/* Product description */
 .description {
   list-style-type: none;
   margin-left: 0;
@@ -102,3 +104,19 @@ body {
   font-size: 0.85rem;
   letter-spacing: 0.2px;
 }
+
+/* Add to cart */
+.add-to-cart-button {
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #000000;
+    cursor: pointer;
+    background-color: #ffc400;
+    transition: color 300ms;
+  }
+  
+  .add-to-cart-button:hover {
+    color: #fff;
+    background-color: #000;
+  }
