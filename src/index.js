@@ -20,7 +20,7 @@ fetch("https://fakestoreapi.com/products/")
         <div id="description-text" class="description">
           <p>${value.description}</p>
           </div>
-          <button id="add-item" class="add-to-cart-button" type="submit">Add to Cart</button>
+          <button id="add-item" class="add-to-cart-button" type="submit">Favorite Item</button>
       </div>
     </div>`
     });
@@ -28,81 +28,32 @@ fetch("https://fakestoreapi.com/products/")
   cardBody.innerHTML = cartData;
   
   
-  const addItem = document.querySelectorAll(".add-item")
-  const cart = document.getElementById("cart-list")
-  
-  let selectedItem = ""
-  data.map(value => {
-    selectedItem += `
-    <div class="cart-item">
-    <li id="cart-list" href="#">${value.title}</li>
-      <li id="cart-price" href="#">${value.price}</li>
-      <button id="remove-item" class="remove-from-cart"> X </button>
-      </div>
-    `
-    cart.innerHTML = selectedItem
-  })
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
+const priceForm = document.getElementById("price-form")
+const input = document.getElementById("price")
+const inputValue = () => parseInt(input.value)
 
 
-fetch("https://fakestoreapi.com/products/")
-.then(res => res.json())
-.then(data => {
-  const cart = document.getElementById("cart-list")
-  let selectedItem = ""
-  
-  fetch('http://localhost:3000/products')
-    .then(res => res.json())
-    .then(data => 
-      
-      
-      data.map(value => {
-        selectedItem += `
-        <div class="cart-item">
-          <li>
-            <p id="cart-list">${value.title}</p>
-            <p id="cart-price">${value.price}</p>
-          </li>
+priceForm.addEventListener("submit", function(event){
+  event.preventDefault()
+    let selectedItem = ""
+    data.map(value => {
+      const passedItems = (Math.floor(value.price) < inputValue()) ? 
+      (selectedItem += `
+      <div class="cart-item">
+        <li>
+          <img class="cart-list" src="${value.image}" />
+          <p id="cart-list" href="#">${value.title}</p>
+          <p id="cart-price" href="#">Ksh. ${value.price}</p>
+        </li>
         <button id="remove-item" class="remove-from-cart"> X </button>
         </div>
-        `
-      console.log(value.title)
+        <hr>
+      `) : 
+      "No item found"
 
-  cart.innerHTML = selectedItem
-  
-const dbData = {
-  "title": value.title,
-  "price": value.price
-};
-
-makePost = () => {fetch('http://localhost:3000/products', {
-  method: 'POST', // or 'PUT'
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(dbData),
-  })
-  .then((response) => response.json())
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-}
-
-removePost = () => {fetch('http://localhost:3000/products/1',{
-            method:"DELETE"
-        })
-            .then(res=>res.json())
-            .then(json=>console.log(json))}
-
-
-      const removeItem = document.querySelector(".remove-from-cart")
-      removeItem.addEventListener("click", () =>{
-        console.log("clicked")
-        removePost()
-      })
-  })
-)})
-
+    document.getElementById("cart-list").innerHTML = selectedItem
+    })
+});
+}).catch((error) => {
+  console.error('Error:', error);
+});

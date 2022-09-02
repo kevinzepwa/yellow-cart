@@ -10,26 +10,33 @@
     <title>Yellow Cart App</title>
 </head>
 <body>
-  <span class="h1 title">Yellow Cart App</span>
+  
+  <nav class="navbar navbar-light bg-warning justify-content-between">
+    <span class="h1 title">YELLOW CART APP</span>
 
-  <ul class="nav justify-content-center p-3 bg-warning">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">Account</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Checkout</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" aria-current="page" href="#">Help</a>
-    </li>
+    <form id="price-form" class="price-form">
+      <input
+        class="price-input"
+        type="text"
+        name="price"
+        id="price"
+        placeholder="Set your price..."
+      />
+      <button class="set-prize-button" type="submit">Set Prize</button>
+    </form>
+  </nav>
 
-    <div class="cart-dropdown">
-        <button class="cart-button">Cart Items</button>
-        <ol id="cart-list" class="cart-dropdown-content">
-          <li href="#">Items</li>
-        </ol>
+    <div class="justify-content-center p-3 bg-light">
+      <div class="nav-item">
+        <div class="cart-dropdown">
+            <button class="cart-button">Check Available Items</button>
+            <ol id="cart-list" class="cart-dropdown-content">
+            </ol>
+        </div>
+      </div>
     </div>
-  </ul>
+
+    <h2 class="heading">ALL PRODUCTS</h2>
 
   <div class="container">
     <div class="table">
