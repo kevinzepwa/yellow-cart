@@ -33,7 +33,23 @@ const input = document.getElementById("price")
 const inputValue = () => parseInt(input.value)
 
 
+priceForm.addEventListener("submit", function(event){
+  event.preventDefault()
+    let selectedItem = ""
+    data.map(value => {
+      const passedItems = (Math.floor(value.price) < inputValue()) ? 
+      (selectedItem += `
+      <div class="cart-item">
+      <li id="cart-list" href="#">${value.title}</li>
+        <li id="cart-price" href="#">${value.price}</li>
+        <button id="remove-item" class="remove-from-cart"> X </button>
+        </div>
+      `) : 
+      "No item found"
 
+    document.getElementById("cart-list").innerHTML = selectedItem
+    })
+});
 }).catch((error) => {
   console.error('Error:', error);
 });
