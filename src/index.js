@@ -26,10 +26,11 @@ fetch("https://fakestoreapi.com/products/")
     });
   const cardBody = document.getElementById("card-body")
   cardBody.innerHTML = cartData;
-
+  
+  
   const addItem = document.querySelectorAll(".add-item")
   const cart = document.getElementById("cart-list")
-    
+  
   let selectedItem = ""
   data.map(value => {
     selectedItem += `
@@ -41,7 +42,56 @@ fetch("https://fakestoreapi.com/products/")
     `
     cart.innerHTML = selectedItem
   })
-  removePost = () => {fetch('https://fakestoreapi.com/products/1',{
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+
+
+fetch("https://fakestoreapi.com/products/")
+.then(res => res.json())
+.then(data => {
+  const cart = document.getElementById("cart-list")
+  let selectedItem = ""
+  
+  fetch('http://localhost:3000/products')
+    .then(res => res.json())
+    .then(data => 
+      
+      
+      data.map(value => {
+        selectedItem += `
+        <div class="cart-item">
+          <li>
+            <p id="cart-list">${value.title}</p>
+            <p id="cart-price">${value.price}</p>
+          </li>
+        <button id="remove-item" class="remove-from-cart"> X </button>
+        </div>
+        `
+      console.log(value.title)
+
+  cart.innerHTML = selectedItem
+  
+const dbData = {
+  "title": value.title,
+  "price": value.price
+};
+
+makePost = () => {fetch('http://localhost:3000/products', {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(dbData),
+  })
+  .then((response) => response.json())
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
+removePost = () => {fetch('http://localhost:3000/products/0',{
             method:"DELETE"
         })
             .then(res=>res.json())
@@ -53,9 +103,6 @@ fetch("https://fakestoreapi.com/products/")
         console.log("clicked")
         removePost()
       })
-
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
+  })
+)})
 
