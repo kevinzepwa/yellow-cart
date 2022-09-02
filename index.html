@@ -10,19 +10,17 @@
     <title>Yellow Cart App</title>
 </head>
 <body>
-  <h1 class="h1 title">Yellow Cart App</h1>
-  <ul class="nav justify-content-center bg-warning">
+  <span class="h1 title">Yellow Cart App</span>
+
+  <ul class="nav justify-content-center p-3 bg-warning">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Account</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Cart</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Checkout</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled">Help</a>
+      <a class="nav-link disabled" aria-current="page" href="#">Help</a>
     </li>
 
     <div class="cart-dropdown">
@@ -31,11 +29,12 @@
           <li href="#">Items</li>
         </ol>
     </div>
-  </ul> 
+  </ul>
+
   <div class="container">
     <div class="card">
-      <div id="card-body" class="d-flex flex-wrap flex-row mb-3"> Items </div>
+      <div id="card-body" class="d-flex flex-wrap flex-row mb-2"> Items </div>
     </div>
-  </div>  
+  </div>
 </body>
 </html>
