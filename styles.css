@@ -8,7 +8,7 @@ body {
   background-color: #ffffff;
 }
 
-.title {
+.title, .heading {
   text-align: left;
   padding: 15px 10px;
   font-size: 0.9rem;
@@ -17,8 +17,19 @@ body {
   color: #000;
 }
 
+.price-input {
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 50px;
+    width: 75%;
+    padding: 2px 23px 2px 30px;
+    outline: 0;
+    background-color: #f5f5f5;
+}
+
 /* Cart dropdown */
-.cart-button {
+.cart-button,
+.comment-button {
   background-color: #000000;
   color: white;
   padding: 16px;
@@ -60,6 +71,10 @@ body {
   background-color: #575814;
 }
 
+.cart-list{
+  height: 55px;
+  width: 55px;
+}
 /* Search Box */
 
 .search-box {

@@ -40,10 +40,14 @@ priceForm.addEventListener("submit", function(event){
       const passedItems = (Math.floor(value.price) < inputValue()) ? 
       (selectedItem += `
       <div class="cart-item">
-      <li id="cart-list" href="#">${value.title}</li>
-        <li id="cart-price" href="#">${value.price}</li>
+        <li>
+          <img class="cart-list" src="${value.image}" />
+          <p id="cart-list" href="#">${value.title}</p>
+          <p id="cart-price" href="#">Ksh. ${value.price}</p>
+        </li>
         <button id="remove-item" class="remove-from-cart"> X </button>
         </div>
+        <hr>
       `) : 
       "No item found"
 
