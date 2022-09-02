@@ -91,7 +91,7 @@ makePost = () => {fetch('http://localhost:3000/products', {
   });
 }
 
-removePost = () => {fetch('http://localhost:3000/products/0',{
+removePost = () => {fetch('http://localhost:3000/products/1',{
             method:"DELETE"
         })
             .then(res=>res.json())
