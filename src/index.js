@@ -28,19 +28,32 @@ fetch("https://fakestoreapi.com/products/")
   cardBody.innerHTML = cartData;
 
   const addItem = document.querySelectorAll(".add-item")
-const cart = document.getElementById("cart-list")
+  const cart = document.getElementById("cart-list")
+    
+  let selectedItem = ""
+  data.map(value => {
+    selectedItem += `
+    <div class="cart-item">
+    <li id="cart-list" href="#">${value.title}</li>
+      <li id="cart-price" href="#">${value.price}</li>
+      <button id="remove-item" class="remove-from-cart"> X </button>
+      </div>
+    `
+    cart.innerHTML = selectedItem
+  })
+  removePost = () => {fetch('https://fakestoreapi.com/products/1',{
+            method:"DELETE"
+        })
+            .then(res=>res.json())
+            .then(json=>console.log(json))}
 
-let selectedItem = ""
-data.map(value => {
-  selectedItem += `
-  <div class="cart-item">
-  <li id="cart-list" href="#">${value.title}</li>
-    <li id="cart-price" href="#">${value.price}</li>
-    <button id="remove-item" class="remove-from-cart"> X </button>
-    </div>
-  `
-  cart.innerHTML = selectedItem
-})
+
+      const removeItem = document.querySelector(".remove-from-cart")
+      removeItem.addEventListener("click", () =>{
+        console.log("clicked")
+        removePost()
+      })
+
 })
 .catch((error) => {
   console.error('Error:', error);
