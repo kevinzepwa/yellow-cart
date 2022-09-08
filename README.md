@@ -20,7 +20,7 @@ This is an intuitive shopping cart. The app has all products. You can input your
 ## link
 You can view the live page from [here](https://kevinzepwa.github.io/yellow-cart/)
 
-## Authors(dog lovers)
+## Authors(Shopping-enthusiasts)
 - Kevin Zepwa 🛍️
 
 ## Setup
